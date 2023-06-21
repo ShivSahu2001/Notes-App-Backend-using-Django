@@ -58,7 +58,9 @@ ROOT_URLCONF = "mynotes.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            BASE_DIR / "frontend/dist"
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -121,9 +123,43 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+# STATICFILES_DIRS = [
+#     BASE_DIR / "frontend/dist/assets",
+# ]
+# STATIC_ROOT = BASE_DIR / "staticfiles"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+CSRF_TRUSTED_ORIGINS = ['https://*.mydomain.com','http://*.127.0.0.1:5173']
+# ALLOWED_HOSTS = [
+#     'localhost',
+# ],
+# CORS_ORIGIN_WHITELIST = [
+#     'http://localhost:5173',
+# ]
+
+CORS_ALLOW_METHODS = [
+'DELETE',
+'GET',
+'OPTIONS',
+'PATCH',
+'POST',
+'PUT',
+]
+
+CORS_ALLOW_HEADERS = [
+'accept',
+'accept-encoding',
+'authorization',
+'content-type',
+'dnt',
+'origin',
+'user-agent',
+'x-csrftoken',
+'x-requested-with',
+]
